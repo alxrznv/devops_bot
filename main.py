@@ -343,7 +343,7 @@ def getrepllogsCommand(update: Update, context):
     client = paramiko.SSHClient()
     client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
     client.connect(hostname=host, username=username, password=password, port=port)
-    stdin, stdout, stderr = client.exec_command('grep "replication" /var/log/postgresql/postgresql.log')
+    stdin, stdout, stderr = client.exec_command('tail -n 15 grep "replication" /var/log/postgresql/postgresql.log')
     data = stdout.read() + stderr.read()
     client.close()
     data = str(data).replace('\\n', '\n').replace('\\t', '\t')[2:-1]
