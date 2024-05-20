@@ -1,0 +1,29 @@
+all:
+  vars:
+    DB_REPL_USER: repl_user
+    DB_REPL_PASSWORD: Qq12345
+    POSTGRES_VERSION: 16
+    DB_HOST: 192.168.0.104
+  hosts:
+    host01:
+      ansible_host: 192.168.0.104
+      ansible_user: root
+      ansible_ssh_pass: kali
+      github_repo: https://github.com/alxrznv/devops_bot.git
+      dir: /home/kali/ansible
+      TOKEN: 6726744835:AAFM6CPsIFQ6Zb1RTijLJmOg0xDsHAFNUPQ
+      RM_HOST: 192.168.0.104
+      RM_PORT: 22
+      RM_USER: kali
+      RM_PASSWORD: kali
+      DB_USER: postgres
+      DB_PASSWORD: Qq12345
+      DB_PORT: 5432
+      DB_DATABASE: ptstart
+      DB_REPL_HOST: db_repl
+      DB_REPL_PORT: 5432
+    host02:
+      ansible_host: 192.168.0.109
+      ansible_user: root
+      ansible_ssh_pass: kali
+      
