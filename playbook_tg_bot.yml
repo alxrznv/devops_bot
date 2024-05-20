@@ -82,7 +82,10 @@
           archive_command = 'cd .'
           max_wal_senders = 10
           hot_standby = on
+          log_destination = 'stderr'
           logging_collector = on
+          log_directory = '/var/log/postgresql/'
+          log_filename = 'postgresql.log'
           log_replication_commands = on
     - name: pg_hba conf
       blockinfile:
@@ -146,14 +149,14 @@
       git:
         repo: https://github.com/alxrznv/devops_bot.git
         dest: "{{ hostvars[inventory_hostname]['dir'] }}/project"
-        version: docker
+        version: AnsibleSource
     - name: pip install
       pip: 
-        requirements: "{{ hostvars[inventory_hostname]['dir'] }}/project/bot/requirements.txt"
+        requirements: "{{ hostvars[inventory_hostname]['dir'] }}/project/requirements.txt"
     - name: mkdir logs
       command: mkdir -p "{{ hostvars[inventory_hostname]['dir'] }}/../logs"
     - name: run python bot
-      command: python3 "{{ hostvars[inventory_hostname]['dir'] }}/project/bot/main.py"
+      command: python3 "{{ hostvars[inventory_hostname]['dir'] }}/project/main.py"
       environment:
         TOKEN: "{{ hostvars[inventory_hostname]['TOKEN'] }}"
         RM_HOST: "{{ hostvars[inventory_hostname]['RM_HOST'] }}"

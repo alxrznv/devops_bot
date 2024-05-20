@@ -14,7 +14,7 @@ all:
       TOKEN: 6726744835:AAFM6CPsIFQ6Zb1RTijLJmOg0xDsHAFNUPQ
       RM_HOST: 192.168.0.104
       RM_PORT: 22
-      RM_USER: kali
+      RM_USER: root
       RM_PASSWORD: kali
       DB_USER: postgres
       DB_PASSWORD: Qq12345
